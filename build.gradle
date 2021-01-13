@@ -1,0 +1,29 @@
+buildscript {
+    // springBootVersion 전역변수 생성 후 '2.1.9.RELEASE'  할당
+    // spring-boot-gradle-plugin의 2.1.9.RELEASE를 의존성으로 받겠다는 뜻
+    ext {
+        springBootVersion = '2.1.9.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
